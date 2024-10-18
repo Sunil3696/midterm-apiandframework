@@ -1,3 +1,12 @@
+/**
+ * File: userController.js
+ * Author: Sunil Balami
+ * StudentID: 200578456
+ * Date: 2024-10-18'
+ * Desc: This is a controller page and it will have the function that is directly related to the handle user related opration like
+ * fetching, deleting, creating, manipulating documents on the mongodb.
+ */
+
 const User = require("../models/userModel");
 const fs = require("fs");
 const path = require("path");
@@ -5,6 +14,12 @@ const path = require("path");
 //     res.send("you are workig fine")
 // }
 
+/**
+ * Desc: getAllUsers from the mongodb database
+ *Parameter:
+ *   req : what user sends (currently nothing)
+ *   res : the all user object if exists
+ */
 const getAllUsers = async (req, res) => {
   //   res.send("getall")
   try {
@@ -23,11 +38,18 @@ const getAllUsers = async (req, res) => {
   }
 };
 
+
+/**
+ * Desc: getUserById function fetch and return user details based on the userid
+ *Parameter:
+ *   req : JSON body of Recipe data like recipeName, cookingTime etc
+ *   res : The whole object that is created or the error body.
+ */
 const getUserById = async (req, res) => {
   // res.send("I am get user by id")
   const userID = req.params.id;
   try {
-    const user = await User.findById(userID);
+    const user = await User.find({ userId: userID });
     if (!user) {
       return res.status(404).send("User not found with given ID");
     } else {
