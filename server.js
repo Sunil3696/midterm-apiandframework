@@ -1,6 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
-
+const userRoutes = require('./src/routes/userRoutes')
 const app = express();
 
 const PORT = process.env.PORT || 3000;
@@ -17,6 +17,7 @@ mongoose
 //parshing JSON requests
 app.use(express.json());
 
+app.use("/",userRoutes ); //Base URL for recipe
 
 //Starting the server
 app.listen(PORT, () => {
