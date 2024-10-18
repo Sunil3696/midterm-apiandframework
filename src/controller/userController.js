@@ -39,4 +39,10 @@ const getUserById = async (req, res) => {
   }
 };
 
-module.exports = { getAllUsers, getUserById };
+
+
+const getUserByLocation = async (req, res) => {
+    res.send("i am getuser by location")
+}
+
+module.exports = { getAllUsers, getUserById, getUserByLocation };
