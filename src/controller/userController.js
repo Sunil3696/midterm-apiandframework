@@ -25,8 +25,9 @@ const getAllUsers = async (req, res) => {
 
 const getUserById = async (req, res) => {
   // res.send("I am get user by id")
+  const userID = req.params.id
   try {
-    const user = await User.findById(req.params.id);
+    const user = await User.findById(userID);
     if (!user) {
       return res.status(404).send("User not found with given ID");
     } else {
