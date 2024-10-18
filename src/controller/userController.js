@@ -5,9 +5,22 @@ const path = require('path');
 //     res.send("you are workig fine")
 // }
 
-const getAllUser = async (req, res) => {
-  res.send("getall")
+const getAllUsers = async (req, res) => {
+//   res.send("getall")
+try {
+    const users = await User.find();
+
+    if(users){
+       res.status(200).send(users);
+    }else {
+        res.status(404).json({error : "No data found"})
+    }
+}
+catch (error) {
+
+}
+
 
 };
 
-module.exports = { getAllUser };
+module.exports = { getAllUsers };
