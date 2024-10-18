@@ -50,6 +50,8 @@ try{
     }
 }
 catch(error){
+    console.log("error", error);
+    res.status(500).send("Failed to fetch users by location");
 
 }
 };
