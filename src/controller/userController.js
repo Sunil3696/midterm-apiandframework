@@ -41,12 +41,16 @@ const getUserById = async (req, res) => {
 
 const getUserByLocation = async (req, res) => {
 //   res.send("i am getuser by location");
-
 try{
-
+    const users = await User.find({'userData.location': req.params.location })
+    if( users.length > 0 ){
+        res.status(200).json(users);
+    }else {
+        res.status(404).json({message:"no user found with given location"})
+    }
 }
 catch(error){
-    
+
 }
 };
 
