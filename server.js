@@ -53,7 +53,7 @@ const importUsers = async (req, res) => {
 };
 
 app.get("/import-users", importUsers); //get route to import user to db
-app.use("/", userRoutes); //Base URL for recipe
+app.use("/", userRoutes); //Base URL for user
 
 //Starting the server
 app.listen(PORT, () => {
