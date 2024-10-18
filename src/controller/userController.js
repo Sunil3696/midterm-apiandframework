@@ -40,7 +40,14 @@ const getUserById = async (req, res) => {
 };
 
 const getUserByLocation = async (req, res) => {
-  res.send("i am getuser by location");
+//   res.send("i am getuser by location");
+
+try{
+
+}
+catch(error){
+    
+}
 };
 
 module.exports = { getAllUsers, getUserById, getUserByLocation };
