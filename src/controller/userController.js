@@ -25,7 +25,7 @@ const getAllUsers = async (req, res) => {
 
 const getUserById = async (req, res) => {
   // res.send("I am get user by id")
-  const userID = req.params.id
+  const userID = req.params.id;
   try {
     const user = await User.findById(userID);
     if (!user) {
@@ -39,10 +39,8 @@ const getUserById = async (req, res) => {
   }
 };
 
-
-
 const getUserByLocation = async (req, res) => {
-    res.send("i am getuser by location")
-}
+  res.send("i am getuser by location");
+};
 
 module.exports = { getAllUsers, getUserById, getUserByLocation };
