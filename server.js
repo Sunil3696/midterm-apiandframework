@@ -1,3 +1,10 @@
+/**
+ * File: server.js
+ * Author: Sunil Balami
+ * StudentID: 200578456
+ * Date: 2024-10-18
+ * Description: This is the main entry point of application. It create the server and connect itself to Mongodb
+ */
 const express = require("express");
 const mongoose = require("mongoose");
 const userRoutes = require("./src/routes/userRoutes");
@@ -7,9 +14,11 @@ const User = require("./src/models/userModel");
 const app = express();
 
 const PORT = process.env.PORT || 3000;
-const MongodbURI =
-  "mongodb+srv://suniluser:sunil123@cluster0.j50og.mongodb.net/";
+const MongodbURI = "mongodb+srv://suniluser:sunil123@cluster0.j50og.mongodb.net/";  //mongodb uri string
 
+  /**Mongodb Connection
+ * Connect to mongo db with given URI for the varioud Database operations
+ **/
 mongoose
   .connect(MongodbURI, {
     useNewUrlParser: true,
@@ -42,8 +51,7 @@ const importUsers = async (req, res) => {
   }
 };
 
-app.get("/import-users", importUsers);
-
+app.get("/import-users", importUsers); //get route to import user to db
 app.use("/", userRoutes); //Base URL for recipe
 
 //Starting the server
