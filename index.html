@@ -68,6 +68,11 @@
                     document.getElementById('results').textContent = error.message;
                     console.error('Error:', error);
                 });
+        });
+
+//get user based on the lcoation
+        document.getElementById('getUsersByLocation').addEventListener('click', () => {
+            const location = prompt('Enter Location:');
 
         });
 
