@@ -42,8 +42,8 @@ const getAllUsers = async (req, res) => {
 /**
  * Desc: getUserById function fetch and return user details based on the userid
  *Parameter:
- *   req : JSON body of Recipe data like recipeName, cookingTime etc
- *   res : The whole object that is created or the error body.
+ *   req : userid as parameter
+ *   res : The user data based on the id if matches
  */
 const getUserById = async (req, res) => {
   // res.send("I am get user by id")
@@ -61,6 +61,12 @@ const getUserById = async (req, res) => {
   }
 };
 
+/**
+ * Desc: getUserByLocation function fetch and return user details based on the userid which is now case insensitive
+ *Parameter:
+ *   req : location as parameter
+ *   res : The user data based on the location if matches
+ */
 const getUserByLocation = async (req, res) => {
 //   res.send("i am getuser by location");
 
