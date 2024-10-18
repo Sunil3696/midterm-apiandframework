@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const userRoutes = require('./src/routes/userRoutes')
+const userRoutes = require("./src/routes/userRoutes");
+const fs = require('fs')
 const app = express();
 
 const PORT = process.env.PORT || 3000;
@@ -17,9 +18,15 @@ mongoose
 //parshing JSON requests
 app.use(express.json());
 
-app.use("/",userRoutes ); //Base URL for recipe
+const data = JSON.parse(fs.readFileSync('./users.json', 'utf-8'));
+
+
+
+
+
+app.use("/", userRoutes); //Base URL for recipe
 
 //Starting the server
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-  });
+  console.log(`Server is running on port ${PORT}`);
+});
