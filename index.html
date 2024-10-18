@@ -39,9 +39,14 @@
     // Students need to implement the JavaScript code here
 
     // This includes fetching data from the REST API and handling the responses.
-
+    const baseURL = 'http://localhost:3000/users';
 document.getElementById('getAllUsers').addEventListener('click', () => {
-    
+    fetch(baseURL)
+    .then(response => response.json())
+        .then(data => {
+          document.getElementById('results').textContent = JSON.stringify(data, null, 2);
+        })
+        .catch(error => console.error('Error:', error));
 })
 
   </script>
