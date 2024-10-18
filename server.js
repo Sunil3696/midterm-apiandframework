@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const userRoutes = require("./src/routes/userRoutes");
 const fs = require("fs");
+const cors = require('cors');
 const User = require("./src/models/userModel");
 const app = express();
 
@@ -16,7 +17,9 @@ mongoose
   })
   .then(() => console.log("you are Connected to MongoDB"))
   .catch((err) => console.error(err));
-
+  
+  //enabling cors
+  app.use(cors());
 //parshing JSON requests
 app.use(express.json());
 
