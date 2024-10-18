@@ -9,14 +9,15 @@ const express = require("express");
 const mongoose = require("mongoose");
 const userRoutes = require("./src/routes/userRoutes");
 const fs = require("fs");
-const cors = require('cors');
+const cors = require("cors");
 const User = require("./src/models/userModel");
 const app = express();
 
 const PORT = process.env.PORT || 3000;
-const MongodbURI = "mongodb+srv://suniluser:sunil123@cluster0.j50og.mongodb.net/";  //mongodb uri string
+const MongodbURI =
+  "mongodb+srv://suniluser:sunil123@cluster0.j50og.mongodb.net/"; //mongodb uri string
 
-  /**Mongodb Connection
+/**Mongodb Connection
  * Connect to mongo db with given URI for the varioud Database operations
  **/
 mongoose
@@ -26,9 +27,9 @@ mongoose
   })
   .then(() => console.log("you are Connected to MongoDB"))
   .catch((err) => console.error(err));
-  
-  //enabling cors
-  app.use(cors());
+
+//enabling cors
+app.use(cors());
 //parshing JSON requests
 app.use(express.json());
 

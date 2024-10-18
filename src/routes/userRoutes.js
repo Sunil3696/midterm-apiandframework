@@ -9,12 +9,15 @@
 const express = require("express");
 // Creating a new router instance
 const router = express.Router();
-const { getAllUsers , getUserById, getUserByLocation} = require("../controller/userController");
-
+const {
+  getAllUsers,
+  getUserById,
+  getUserByLocation,
+} = require("../controller/userController");
 
 //all routes goes here
-router.get('/users',getAllUsers);  
-router.get('/users/:id', getUserById);
-router.get('/users/location/:location', getUserByLocation);
+router.get("/users", getAllUsers);
+router.get("/users/:id", getUserById);
+router.get("/users/location/:location", getUserByLocation);
 
 module.exports = router; //exporting router

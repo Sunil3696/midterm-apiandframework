@@ -38,7 +38,6 @@ const getAllUsers = async (req, res) => {
   }
 };
 
-
 /**
  * Desc: getUserById function fetch and return user details based on the userid
  *Parameter:
@@ -68,24 +67,22 @@ const getUserById = async (req, res) => {
  *   res : The user data based on the location if matches
  */
 const getUserByLocation = async (req, res) => {
-//   res.send("i am getuser by location");
+  //   res.send("i am getuser by location");
 
-//making the search case insensitive
-const locationRegex = new RegExp(req.params.location, 'i');
-console.log(locationRegex)
-try{
-    const users = await User.find({'userData.location': locationRegex })
-    if( users.length > 0 ){
-        res.status(200).json(users);
-    }else {
-        res.status(404).json({message:"no user found with given location"})
+  //making the search case insensitive
+  const locationRegex = new RegExp(req.params.location, "i");
+  console.log(locationRegex);
+  try {
+    const users = await User.find({ "userData.location": locationRegex });
+    if (users.length > 0) {
+      res.status(200).json(users);
+    } else {
+      res.status(404).json({ message: "no user found with given location" });
     }
-}
-catch(error){
+  } catch (error) {
     console.log("error", error);
     res.status(500).send("Failed to fetch users by location");
-
-}
+  }
 };
 
 module.exports = { getAllUsers, getUserById, getUserByLocation };
