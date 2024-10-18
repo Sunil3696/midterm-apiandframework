@@ -70,10 +70,23 @@
                 });
         });
 
-//get user based on the lcoation
+        //get user based on the lcoation
         document.getElementById('getUsersByLocation').addEventListener('click', () => {
             const location = prompt('Enter Location:');
-
+            fetch(`${baseURL}/location/${location}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(response.statusText);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    document.getElementById('results').textContent = JSON.stringify(data, null, 2);
+                })
+                .catch(error => {
+                    document.getElementById('results').textContent = error.message;
+                    console.error('Error:', error);
+                });
         });
 
     </script>
