@@ -17,7 +17,8 @@ try {
     }
 }
 catch (error) {
-
+    console.log("error:", error);
+    res.status(500).json({message: "error orccured while getting users", error})
 }
 
 
