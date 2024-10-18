@@ -6,7 +6,7 @@ const path = require('path');
 // }
 
 const getAllUser = async (req, res) => {
-  // res.send("getall")
+  res.send("getall")
 
 };
 

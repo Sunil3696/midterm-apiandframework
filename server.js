@@ -6,7 +6,7 @@ const User = require("./src/models/userModel");
 const app = express();
 
 const PORT = process.env.PORT || 3000;
-const MongodbURI = "mongodb+srv://sunil:sunil123@cluster0.df1iq.mongodb.net/";
+const MongodbURI = "mongodb+srv://suniluser:sunil123@cluster0.j50og.mongodb.net/";
 
 mongoose
   .connect(MongodbURI, {
