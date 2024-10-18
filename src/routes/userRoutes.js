@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const {testfunc} = require("../controller/userController")
+const {importUser} = require("../controller/userController")
 
-router.post("/check", testfunc);
+router.post("/import-users",importUser );
 
 
 module.exports = router; //exporting router
