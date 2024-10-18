@@ -54,7 +54,21 @@
         //get user by id
         document.getElementById('getUserById').addEventListener('click', () => {
             const userId = prompt("Enter the user id to fetch");
-            
+            fetch(`${baseURL}/${userId}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(response.statusText);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    document.getElementById('results').textContent = JSON.stringify(data, null, 2);
+                })
+                .catch(error => {
+                    document.getElementById('results').textContent = error.message;
+                    console.error('Error:', error);
+                });
+
         });
 
     </script>
