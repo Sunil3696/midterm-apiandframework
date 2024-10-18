@@ -41,8 +41,12 @@ const getUserById = async (req, res) => {
 
 const getUserByLocation = async (req, res) => {
 //   res.send("i am getuser by location");
+
+//making the search case insensitive
+const locationRegex = new RegExp(req.params.location, 'i');
+console.log(locationRegex)
 try{
-    const users = await User.find({'userData.location': req.params.location })
+    const users = await User.find({'userData.location': locationRegex })
     if( users.length > 0 ){
         res.status(200).json(users);
     }else {
